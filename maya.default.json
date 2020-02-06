@@ -1,0 +1,32 @@
+{
+	"environments": {
+		"stage": {
+			"access_token": "{ stage-prod token }",
+			"plugins": {
+				"dashboard": {
+					"id": 1512,
+					"namespace": "fileTransferSp",
+                    "version": 2,
+                    "services": {
+                        "download": {
+                            "id": 873
+                        }
+                    }
+				}
+			},
+			"default": true
+		},
+		"prod": {
+			"access_token": "{ labs token }",
+			"plugins": {
+				"dashboard": {
+					"id": 193,
+					"namespace": "labsdashboard",
+					"route": "/labsdashboard",
+					"version": 2
+				}
+			},
+			"default": false
+		}
+	}
+}

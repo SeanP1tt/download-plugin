@@ -1,0 +1,7 @@
+
+maya.json
+maya_build/*
+.DS_Store
+plugins/.DS_Store
+.vscode
+node_modules

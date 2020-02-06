@@ -1,0 +1,9 @@
+{
+  "icon": "icon-spinner icon-spin",
+  "views": [
+    {
+      "type": "fullPage",
+      "src": "/index.html"
+    }
+  ]
+}
