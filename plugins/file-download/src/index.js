@@ -22,9 +22,14 @@ export const App = props => {
   }, [])
 
  const download = function(formId){
-  let response = axios.post(`http://localhost:3000/workspaces/workspaces/24721/fileTransferSp/download`,
+   console.log(formId)
+  let response = axios.post(`http://localhost:3000/workspaces/24721/fileTransferSp/download`,
   { id: formId },
-  { headers: { 'Content-Type': 'application/json' } }).catch((err)=>console.log('we got this error: ', err))
+  { headers: { 
+    'Content-Type': 'application/x-www-form-urlencoded',
+  'Content-Type': 'application/json' 
+} 
+}).catch((err)=>console.error(err))
  } 
 
   if (!context) return <p>Loading...</p>

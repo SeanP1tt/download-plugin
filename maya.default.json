@@ -3,13 +3,14 @@
 		"stage": {
 			"access_token": "{ stage-prod token }",
 			"plugins": {
-				"dashboard": {
+				"file-download": {
 					"id": 1512,
 					"namespace": "fileTransferSp",
                     "version": 2,
                     "services": {
                         "download": {
-                            "id": 873
+							"id": 873,
+							"route": "/download"
                         }
                     }
 				}
@@ -19,7 +20,7 @@
 		"prod": {
 			"access_token": "{ labs token }",
 			"plugins": {
-				"dashboard": {
+				"file-download": {
 					"id": 193,
 					"namespace": "labsdashboard",
 					"route": "/labsdashboard",

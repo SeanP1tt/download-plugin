@@ -5,7 +5,7 @@ exports.run = function(eventData) {
 
 	if (eventData.request.method === 'POST') {
 
-		var formId = eventData.request.query.id;
+		var formId = eventData.request.body.id;
 		console.log(formId);
 
 		// znHttp().get('/forms/' + formId).then(function(response) {
