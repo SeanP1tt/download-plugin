@@ -24,7 +24,7 @@ export const App = props => {
  const download = function(formId){
    console.log(formId)
   let response = axios.post(`http://localhost:3000/workspaces/24721/fileTransferSp/download`,
-  { id: formId },
+  { formID: formId, workspaceID: 24721 },
   { headers: { 
     'Content-Type': 'application/x-www-form-urlencoded',
   'Content-Type': 'application/json' 
