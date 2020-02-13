@@ -14,14 +14,13 @@ exports.run = function(eventData) {
 
 		const formId = eventData.request.body.formID;
 		const workspaceID = eventData.request.body.workspaceID;
-		console.log('formId: ', formId);
-
-		znHttp().get(`/forms/${formId}`).then(function(response) {
+		console.log('form ID: ', formId);
+		console.log('workspace ID: ', workspaceID);
+		znHttp().get('/forms/' + formId).then(function(response) {
 			console.log('response ', response);
-			console.log('test');
 
 			// return first form
-			eventData.response.status(200).send(response.getBody());
+			// eventData.response.status(200).send(response.getBody());
 
 		}).catch((err)=>console.error(err))
 		// , function(error) {
