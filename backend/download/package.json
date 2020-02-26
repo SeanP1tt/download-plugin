@@ -9,7 +9,10 @@
     "express": "^4.17.1",
     "firebase": "2.3.1",
     "fs": "0.0.1-security",
+    "jszip": "^3.2.2",
+    "jszip-utils": "^0.1.0",
     "lodash": "^4.17.15",
+    "nodemon": "^2.0.2",
     "path": "^0.12.7",
     "request": "^2.88.0",
     "request-promise": "^4.2.5",
@@ -17,6 +20,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node ./_runner/bin/www"
+    "start": "node ./_runner/bin/www",
+    "start:watch": "nodemon --exitcrash $npm_package_main"
   }
 }

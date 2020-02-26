@@ -8,7 +8,7 @@ var express = require('express'),
 
 
 router.all('/*', function main(req, res, next) {
-
+	req.headers.authorization = 'Bearer 8dc6d5fe025885336d4538f786ca6786c3deaffa'
 	znHttp(req).parseHeaders();
 
 	if (req.get('x-firebase-url')) {

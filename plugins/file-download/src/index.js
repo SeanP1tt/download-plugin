@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { render } from 'react-dom'
 import { znContext, znFiltersPanel} from '@zenginehq/zengine-sdk'
 import axios from 'axios'
+import JSZip from 'jszip'
+import JSZipUtils from 'jszip-utils'
+import saveAs from 'save-as'
 
 
 export const App = props => {
@@ -22,13 +25,34 @@ export const App = props => {
   }, [])
 
  const download = function(formId){
-   console.log(formId)
   let response = axios.post(`http://localhost:3000/workspaces/24721/fileTransferSp/download`,
   { formID: formId, workspaceID: 24721 },
   { headers: { 
     'Content-Type': 'application/x-www-form-urlencoded',
   'Content-Type': 'application/json' 
 } 
+}).then((response)=>{
+  let links = response.data;
+  let zip = new JSZip();
+  let count = 0;
+  let zipFilename = "zipFilename.zip";
+  zip.folder('test'); 
+   links.forEach(function(file){
+		let filename = "filename";
+		// loading a file and add it in a zip file
+		JSZipUtils.getBinaryContent(file.url, function (err, data) {
+		   if(err) {
+			  throw err; // or handle the error
+       }
+		   zip.file(file.name, data, {binary:true});
+		   count++;
+		   if (count == links.length) {
+			zip.generateAsync({type:'blob'}).then(function(content) {
+			   saveAs(content, zipFilename);
+			});
+		 }
+		});
+	  });
 }).catch((err)=>console.error(err))
  } 
 
@@ -58,7 +82,7 @@ export const App = props => {
     )}
     </select>
     <button onClick={()=>{download(
-            form
+            context.workspace.id
             )}}>
       Filter
     </button>
