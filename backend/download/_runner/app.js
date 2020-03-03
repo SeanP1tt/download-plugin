@@ -3,10 +3,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var runner = require('./lib/runner');
-var cors = require('cors');
 var app = express();
 
-app.use(cors());
 app.use(bodyParser.json({ limit: '6mb' }));
 app.use(bodyParser.urlencoded({ extended: false, limit: '6mb'  }));
 

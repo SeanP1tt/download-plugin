@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf ./dist/ && parcel serve src/*.html --https",
-    "build": "rm -rf ./dist/ && parcel build src/*.html && cd dist && rm ../dist.zip && zip -r ../dist.zip ."
+    "start": "rm -rf ./dist/; parcel serve src/*.html --https",
+    "build": "rm -rf ./dist/; rm ./dist.zip; parcel build src/*.html --no-cache && cd dist && zip -r ../dist.zip ."
   },
   "keywords": [],
   "author": "",
